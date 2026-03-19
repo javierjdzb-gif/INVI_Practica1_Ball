@@ -85,14 +85,19 @@ public class LittleBall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.gameObject.CompareTag<Coin>() != null)
-        if (other.gameObject.TryGetComponent(out Key CoinScript))
+        if (other.CompareTag("Key"))
         {
-            //Coin thisCoin = other.gameObject.GetComponent<Coin>();
-            key += CoinScript.keyValue;
             UIManager.Instance.keyText.SetText($"Keys: " + key);
             Destroy(other.gameObject);
         }
+        //if (other.gameObject.CompareTag<Key>() != null)
+       // if (other.gameObject.TryGetComponent(out Key KeyScript))
+       // {
+       //     //Coin thisCoin = other.gameObject.GetComponent<Coin>();
+       //     key += KeyScript.keyValue;
+       //     UIManager.Instance.keyText.SetText($"Keys: " + key);
+       //     Destroy(other.gameObject);
+       // }
     }
 
     private void OnCollisionEnter(Collision collision)
