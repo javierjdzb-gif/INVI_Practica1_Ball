@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     //2. es accesible desde cualquier desde cualquier punto del programa (script)
 
     //Un campo automaticamente encapsulado y esta serializado (se ve en Unity)
-    [field: SerializeField] public TMP_Text ScoreText { get; private set; }
+    [field: SerializeField] public TMP_Text keyText { get; private set; }
 
     //Instance: Trono
     public static UIManager Instance { get; private set; }

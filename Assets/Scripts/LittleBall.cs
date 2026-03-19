@@ -15,11 +15,11 @@ public class LittleBall : MonoBehaviour
     [Header("Sfx")]
     [SerializeField] private AudioClip JumpSound;
     
-    private TMP_Text scoreText;
+    private TMP_Text keyText;
     private Rigidbody rb;
     private Vector3 movementDirection;
     
-    private int Score = 0;
+    private int key = 0;
 
     private void Awake()
     {
@@ -86,11 +86,11 @@ public class LittleBall : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //if (other.gameObject.CompareTag<Coin>() != null)
-        if (other.gameObject.TryGetComponent(out Coin CoinScript))
+        if (other.gameObject.TryGetComponent(out Key CoinScript))
         {
             //Coin thisCoin = other.gameObject.GetComponent<Coin>();
-            Score += CoinScript.CoinScore;
-            UIManager.Instance.ScoreText.SetText($"Score: " + Score);
+            key += CoinScript.keyValue;
+            UIManager.Instance.keyText.SetText($"Keys: " + key);
             Destroy(other.gameObject);
         }
     }
