@@ -44,12 +44,12 @@ public class LittleBall : MonoBehaviour
     void Update()
     {
 
-        Jump();
         
         float hInput =  Input.GetAxis("Horizontal");
         float vInput =  Input.GetAxis("Vertical");
         movementDirection = new Vector3(hInput, 0, vInput).normalized;
         Interact();
+        Jump();
         
         
     }
@@ -67,10 +67,13 @@ public class LittleBall : MonoBehaviour
 
     private void Jump()
     {
-        if (Physics.Raycast(transform.position, Vector3.down,  transform.localScale.y) && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            AudioManager.Instance.PlaySfx(JumpSound);
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            if (Physics.Raycast(transform.position, Vector3.down, transform.localScale.y + 0.1f))
+            {
+                //AudioManager.Instance.PlaySfx(JumpSound);
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            }
         }
     }
 
@@ -87,7 +90,7 @@ public class LittleBall : MonoBehaviour
         {
             //Coin thisCoin = other.gameObject.GetComponent<Coin>();
             Score += CoinScript.CoinScore;
-            UIManager.Instance.ScoreText.SetText("Score: + score");
+            UIManager.Instance.ScoreText.SetText($"Score: " + Score);
             Destroy(other.gameObject);
         }
     }

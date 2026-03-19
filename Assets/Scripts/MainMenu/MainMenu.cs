@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
     // estas dos funciones solo funcionana desde los clicks de los botones
     public void OnPlayerButtonClicked()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Level1");
     }
 
     // Update is called once per frame
