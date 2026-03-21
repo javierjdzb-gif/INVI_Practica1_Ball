@@ -2,6 +2,8 @@ using System;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 [RequireComponent(typeof(Rigidbody))]
 public class LittleBall : MonoBehaviour
 {
@@ -113,6 +115,11 @@ public class LittleBall : MonoBehaviour
             {
                 Destroy(collision.gameObject);
             }
+
+        if (collision.gameObject.CompareTag("Final"))
+        {
+            SceneManager.LoadScene("FinalScene");
+        }
         
     }
 

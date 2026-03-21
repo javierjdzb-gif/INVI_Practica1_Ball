@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -39,5 +40,12 @@ public class UIManager : MonoBehaviour
         {
             SceneManager.LoadScene("SampleScene");
         }
+    }
+    
+    [SerializeField] private Image healthBar;
+    public void UpdateHealthBar(float currentHealth, float maxHealth)
+    {
+        healthBar.fillAmount = currentHealth / maxHealth;
+        healthBar.color = Color.Lerp(Color.red, Color.green, currentHealth / maxHealth);
     }
 }

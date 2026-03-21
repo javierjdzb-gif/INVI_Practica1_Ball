@@ -12,6 +12,7 @@ TagManager:
   - Obstcales
   - FxTemporaire
   - Puerta
+  - Final
   layers:
   - Default
   - TransparentFX
