@@ -8,6 +8,10 @@ TagManager:
   - DestructableObject
   - Coin
   - Key
+  - Obstacle
+  - Obstcales
+  - FxTemporaire
+  - Puerta
   layers:
   - Default
   - TransparentFX

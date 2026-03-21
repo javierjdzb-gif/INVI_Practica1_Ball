@@ -93,7 +93,19 @@ public class LittleBall : MonoBehaviour
             UIManager.Instance.keyText.SetText($"Keys: " + key);
             Destroy(other.gameObject);
         }
+
+        if (other.CompareTag("Puerta"))
+        {
+            if (key > 0)
+            {
+                key--;
+                UIManager.Instance.keyText.SetText($"Keys: " + key);
+                Destroy(other.gameObject);
+            }
+        }
     }
+    
+    
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -101,6 +113,7 @@ public class LittleBall : MonoBehaviour
             {
                 Destroy(collision.gameObject);
             }
+        
     }
 
     private void OnDrawGizmos()
